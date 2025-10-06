@@ -1,0 +1,24 @@
+*{box-sizing:border-box}
+body{font-family: "Segoe UI", Tahoma, Arial; background:#f3f6fb; margin:0; padding:20px; color:#222; direction:rtl}
+.container{max-width:980px;margin:0 auto;background:#fff;padding:22px;border-radius:10px;box-shadow:0 6px 22px rgba(30,50,70,0.08)}
+header h1{margin:0 0 6px;font-size:22px}
+.lead{color:#666;margin:6px 0 18px}
+#steps{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.step{flex:1;padding:10px;border-radius:8px;background:#eef3ff;color:#225; text-align:center;font-weight:600;cursor:default;border:1px solid #e6eefc}
+.step.active{background:#225; color:#fff}
+.form-step{display:none}
+.form-step.active{display:block}
+label{display:block;margin-top:12px;font-weight:700}
+input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input[type="number"],select,textarea{width:100%;padding:10px;margin-top:6px;border:1px solid #d0d7e6;border-radius:8px;background:#fff}
+textarea{min-height:80px}
+.buttons{margin-top:16px;display:flex;gap:8px;justify-content:flex-start}
+button{padding:10px 14px;border-radius:8px;border:none;background:#225;color:#fff;cursor:pointer}
+button.secondary{background:#6c757d}
+button[disabled]{opacity:0.6;cursor:not-allowed}
+.muted{color:#666}
+.checkbox-group label{display:block;font-weight:600;margin-top:8px}
+#productsContainer .product-card{border:1px dashed #cfe1ff;padding:12px;border-radius:8px;margin-bottom:10px;background:#fbfeff}
+.product-controls{display:flex;gap:8px;margin-top:8px}
+.small{padding:6px 8px;font-size:13px;border-radius:6px;background:#eee;color:#333}
+.review{background:#f6f8fb;padding:12px;border-radius:8px;border:1px solid #e6eefc;max-height:300px;overflow:auto}
+footer{margin-top:18px;color:#777;font-size:13px}

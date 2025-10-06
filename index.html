@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>نموذج تفصيلي لإنشاء متجر - Water Store</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>نموذج تفصيلي لإعداد المتجر الإلكتروني</h1>
+      <p class="lead">عبّي البيانات بالكامل علشان نقدر نجهز المتجر، هتلاقي التنقل بين الأقسام بأسفل كل صفحة.</p>
+    </header>
+
+    <form id="wizardForm">
+      <!-- Step indicators -->
+      <div id="steps">
+        <div class="step active" data-step="1">البيانات الأساسية</div>
+        <div class="step" data-step="2">المنتجات</div>
+        <div class="step" data-step="3">الدفع والفواتير</div>
+        <div class="step" data-step="4">التوصيل واللوجستيك</div>
+        <div class="step" data-step="5">القوانين والسياسات</div>
+        <div class="step" data-step="6">التصميم والمظهر</div>
+        <div class="step" data-step="7">مراجعة & إرسال</div>
+      </div>
+
+      <!-- STEP 1 -->
+      <section class="form-step active" data-step="1">
+        <h2>البيانات الأساسية</h2>
+
+        <label>اسم المحل / البراند (عربي)</label>
+        <input name="brand_ar" type="text" placeholder="مثال: مياه النقاء">
+
+        <label>اسم البراند (إنجليزي) - اختياري</label>
+        <input name="brand_en" type="text" placeholder="مثال: PureWater">
+
+        <label>اللوجو (رابط) أو ارفع صورة (ملف)</label>
+        <input name="logo_url" type="url" placeholder="رابط صورة اللوجو (اختياري)">
+        <input name="logo_file" type="file" accept="image/*">
+
+        <label>اسم صاحب المحل</label>
+        <input name="owner_name" type="text">
+
+        <label>موبايل (واتساب مفضل)</label>
+        <input name="phone" type="tel" placeholder="+20...">
+
+        <label>إيميل للتواصل (هام)</label>
+        <input name="email" type="email">
+
+        <label>أوقات العمل</label>
+        <input name="work_hours" type="text" placeholder="مثال: 9ص - 9م (كل أيام الأسبوع)">
+
+        <label>العنوان / مناطق التوصيل (اكتب التفاصيل)</label>
+        <textarea name="delivery_areas" placeholder="مثال: القاهرة - الجيزة - داخل المدينة فقط"></textarea>
+
+        <label>هل المتجر مسجّل قانونياً؟</label>
+        <select name="legal_status">
+          <option value="">اختر</option>
+          <option value="no">لا</option>
+          <option value="yes_personal">نعم - شخصي</option>
+          <option value="yes_trade">نعم - سجل تجاري</option>
+        </select>
+
+        <div class="buttons">
+          <button type="button" class="nextBtn">التالي</button>
+        </div>
+      </section>
+
+      <!-- STEP 2: Products -->
+      <section class="form-step" data-step="2">
+        <h2>المنتجات (مكرر لكل منتج)</h2>
+        <p class="muted">تقدر تضيف منتجات متعددة بالضغط على "أضف منتج جديد".</p>
+
+        <div id="productsContainer"></div>
+
+        <button type="button" id="addProductBtn" class="secondary">أضف منتج جديد</button>
+
+        <div class="buttons">
+          <button type="button" class="prevBtn">السابق</button>
+          <button type="button" class="nextBtn">التالي</button>
+        </div>
+      </section>
+
+      <!-- STEP 3: Payments -->
+      <section class="form-step" data-step="3">
+        <h2>طرق الدفع والفوترة</h2>
+
+        <label>طرق الدفع المتاحة (اختار كل اللي ينطبق)</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="payment_methods" value="cod"> كاش عند الاستلام (COD)</label>
+          <label><input type="checkbox" name="payment_methods" value="bank"> حوالة بنكية</label>
+          <label><input type="checkbox" name="payment_methods" value="paypal"> PayPal / بوابات خارجية</label>
+          <label><input type="checkbox" name="payment_methods" value="card"> دفع ببطاقة (Visa/Master)</label>
+        </div>
+
+        <label>بيانات الحساب البنكي (لو فيها)</label>
+        <textarea name="bank_details" placeholder="البنك - رقم الحساب - اسم الحساب"></textarea>
+
+        <label>تفعيل الفواتير الضريبية؟</label>
+        <select name="invoices">
+          <option value="">اختر</option>
+          <option value="no">لا</option>
+          <option value="yes">نعم - فاتورة ضريبية</option>
+        </select>
+
+        <div class="buttons">
+          <button type="button" class="prevBtn">السابق</button>
+          <button type="button" class="nextBtn">التالي</button>
+        </div>
+      </section>
+
+      <!-- STEP 4: Delivery -->
+      <section class="form-step" data-step="4">
+        <h2>التوصيل واللوجستيك</h2>
+
+        <label>وقت التوصيل المتوقع</label>
+        <input name="delivery_time" type="text" placeholder="مثال: 24-48 ساعة داخل المدينة">
+
+        <label>هل عندك شريك توصيل؟ اكتب اسمه وبيانات التواصل</label>
+        <input name="delivery_partner" type="text">
+
+        <label>رسوم التوصيل (مثال: داخل المدينة 25 جنيه، خارجي 50 جنيه)</label>
+        <input name="delivery_fees" type="text">
+
+        <label>قواعد التوصيل (مثال: حد أدنى للطلب، مناطق ممنوعة...)</label>
+        <textarea name="delivery_rules"></textarea>
+
+        <label>هل تريد تفعيل اشتراكات دورية؟</label>
+        <select name="subscriptions">
+          <option value="">اختر</option>
+          <option value="no">لا</option>
+          <option value="weekly">أسبوعية</option>
+          <option value="monthly">شهرية</option>
+        </select>
+
+        <div class="buttons">
+          <button type="button" class="prevBtn">السابق</button>
+          <button type="button" class="nextBtn">التالي</button>
+        </div>
+      </section>
+
+      <!-- STEP 5: Policies -->
+      <section class="form-step" data-step="5">
+        <h2>القوانين والسياسات</h2>
+
+        <label>هل المنتجات تحتاج شهادات جودة أو موافقات صحية؟ وضّح</label>
+        <textarea name="certificates"></textarea>
+
+        <label>سياسة الاسترجاع والاستبدال</label>
+        <textarea name="return_policy" placeholder="مثال: استرجاع خلال 7 أيام..."></textarea>
+
+        <label>سياسة الضمان (إن وجدت)</label>
+        <textarea name="warranty"></textarea>
+
+        <div class="buttons">
+          <button type="button" class="prevBtn">السابق</button>
+          <button type="button" class="nextBtn">التالي</button>
+        </div>
+      </section>
+
+      <!-- STEP 6: Design -->
+      <section class="form-step" data-step="6">
+        <h2>التصميم والبراندينج</h2>
+
+        <label>ألوان مفضلة (أبديلي رموز ألوان أو أسماء)</label>
+        <input name="colors" type="text" placeholder="#0056b3, #ffffff أو أزرق - أبيض">
+
+        <label>خطوط مفضلة (عربي / إنجليزي)</label>
+        <input name="fonts" type="text" placeholder="مثال: Cairo, Tahoma, Arial">
+
+        <label>هل فيه صور أو بانرات حابب نستخدمها؟ (رابط أو رفع)</label>
+        <input name="banner_url" type="url" placeholder="رابط الصورة">
+        <input name="banner_file" type="file" accept="image/*">
+
+        <label>نمط العرض: (اختار)</label>
+        <select name="layout_pref">
+          <option value="">اختر</option>
+          <option value="clean">نظيف وبسيط</option>
+          <option value="brand">براندينج قوي (ألوان وصور)</option>
+          <option value="catalog">كتالوج منتجات مرتب</option>
+        </select>
+
+        <label>نص "من نحن" (100-300 كلمة)</label>
+        <textarea name="about_us"></textarea>
+
+        <div class="buttons">
+          <button type="button" class="prevBtn">السابق</button>
+          <button type="button" class="nextBtn">التالي</button>
+        </div>
+      </section>
+
+      <!-- STEP 7: Review & Submit -->
+      <section class="form-step" data-step="7">
+        <h2>مراجعة وإرسال</h2>
+        <p class="muted">راجع إجاباتك وبعدين اضغط "إرسال". هنبعتلك ملف JSON جاهز أو نربطه بجوجل شيت لو حبيت.</p>
+
+        <pre id="reviewBox" class="review"></pre>
+
+        <label>الإيميل اللي تحب نستقبل عليه نسخة من الردود</label>
+        <input name="notify_email" type="email">
+
+        <div class="buttons">
+          <button type="button" class="prevBtn">السابق</button>
+          <button type="button" id="downloadJson">تحميل JSON</button>
+          <button type="submit" id="submitBtn">إرسال النموذج</button>
+        </div>
+      </section>
+
+    </form>
+    <footer>
+      <p class="muted">تم تصميم النموذج بواسطة فريق Water Store — لو عايز نوصله بجوجل شيت أو نعمل تحميل آلي للصور قول وهنفعّله.</p>
+    </footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
